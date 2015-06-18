@@ -113,7 +113,7 @@ void RobotStatePublisher::addChildTransforms(map<string, RobotStatePublisher::Jo
         if( publish ) {
           Frame frame = (*child)->second.segment.pose( jnt_p );
           tf::Transform tf_frame;
-          tf::TransformKDLToTF(frame, tf_frame);
+          tf::transformKDLToTF(frame, tf_frame);
           trans.header.stamp = time_frame;
           trans.header.frame_id = tf::resolve(tf_prefix_, segment->first);
           trans.child_frame_id = tf::resolve(tf_prefix_, (*child)->first);
